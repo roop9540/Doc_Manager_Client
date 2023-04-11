@@ -21,14 +21,15 @@ function Login() {
 
     // console.log(logg)
     async function handleSubmit(e) {
-        // alert("came")
         e.preventDefault();
+        alert("came")
+      
         try {
             const res = await axios.post(process.env.REACT_APP_API_BASE_URL + 'user/login', { username: username, password: password })
 
             if (res.status === 200) {
 
-                // alert("post successfully", data)
+                alert("post successfully")
                 setUpdate(update+1)
                 // alert(Object.keys(res))
                 navigate("/home")
@@ -72,9 +73,7 @@ function Login() {
                     
                     <div className='d-grid gap-2 col-8 mx-auto mt-3' >
                         <form onSubmit={handleSubmit} >
-                            {() => {
-                                {/* console.log(loggedIn) */ }
-                            }}
+                           
                             <div className="  mb-3">
                                 <label htmlfor="exampleInputEmail1" className="form-label">Email address</label>
                                 <input type="email" name='username'
