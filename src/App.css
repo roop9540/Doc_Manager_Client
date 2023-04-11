@@ -1,0 +1,11 @@
+.App {
+  text-align: center;
+}
+
+.navbar *{
+color: white;
+}
+
+.home-bg {
+  background-color: aliceblue;
+}
