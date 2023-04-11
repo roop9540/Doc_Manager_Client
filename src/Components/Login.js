@@ -22,7 +22,7 @@ function Login() {
     // console.log(logg)
     async function handleSubmit(e) {
         e.preventDefault();
-        alert("came")
+        // alert("came")
       
         try {
             const res = await axios.post(process.env.REACT_APP_API_BASE_URL + 'user/login', { username: username, password: password })
