@@ -19,7 +19,13 @@ function Home() {
   const closeBtn = useRef()
   const getDocuments = async () => {
     try {
-      const result = await axios.get( process.env.REACT_APP_API_BASE_URL+ "document?id="+ localStorage.getItem("userId"))
+      const result = await axios.get( process.env.REACT_APP_API_BASE_URL+ "document?id="+ localStorage.getItem("userId"), {
+        headers:{
+          headers:{
+            "Content-Type": "multipart/form-data",
+          }
+        }
+      })
       if (result.status === 200) {
 
         setData(result?.data?.result)
@@ -48,7 +54,11 @@ function Home() {
       }else{
         link = "document"
       }
-      const res = await axios.post(process.env.REACT_APP_API_BASE_URL+ link, formData)
+      const res = await axios.post(process.env.REACT_APP_API_BASE_URL+ link, formData, { headers:{
+        headers:{
+          "Content-Type": "multipart/form-data",
+        }
+      }})
      
       if (res.status === 200) {
         // alert("Data Submitted succesfully")
@@ -70,7 +80,11 @@ function Home() {
     formData.append('description', documentDescritpionEdit);
     formData.append('id', documentIdEdit)
     try {
-      const res = await axios.put( process.env.REACT_APP_API_BASE_URL+"document", formData)
+      const res = await axios.put( process.env.REACT_APP_API_BASE_URL+"document",formData, {
+        headers:{
+          "Content-Type": "multipart/form-data",
+        }
+      })
       if (res.status === 200) {
         setUpdate(update+1)
       }
